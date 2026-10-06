@@ -12,6 +12,7 @@ Google Flights Scraper is an Apify Actor that returns Google Flights results for
 - One way or round trip, economy to first, 1–9 adults, nonstop filter, any currency.
 - Airport codes or city names; many routes per run.
 - Price: $0.20 per 1,000 flights (a search costs under a cent).
+- Migrating from the Amadeus Self-Service API? The open-source amadeus-cloud package (github.com/retracn/amadeus-cloud) keeps the Amadeus Node SDK's flightOffersSearch.get/post and returns Amadeus-shaped offers from this Actor.
 
 ## Example input
 
