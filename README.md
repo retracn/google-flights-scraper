@@ -13,6 +13,7 @@ Google Flights Scraper is an Apify Actor that returns Google Flights results for
 - Airport codes or city names; many routes per run.
 - Price: $0.20 per 1,000 flights (a search costs under a cent).
 - Migrating from the Amadeus Self-Service API? The open-source amadeus-cloud package (github.com/retracn/amadeus-cloud) keeps the Amadeus Node SDK's flightOffersSearch.get/post and returns Amadeus-shaped offers from this Actor.
+- Fare alerts: with Only fare drops on, a scheduled run saves a route's flights only when its cheapest fare is lower than on the previous run, with that previous price on every row; Max price adds a threshold such as "under $900".
 
 ## Example input
 
@@ -102,6 +103,9 @@ No. Google shut down its QPX Express flights API in 2018. Google Flights Scraper
 
 **Are prices per person?**
 Prices include taxes and cover all passengers; round trips show the round-trip total.
+
+**Can it send me flight price alerts?**
+Yes. Schedule a search with Only fare drops on: each run saves flights only when the cheapest fare drops, with the previous price, and the task's Integrations tab sends them to Slack, email or a webhook. A run with no drop saves nothing.
 
 ## More from AutomationNation
 
