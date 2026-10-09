@@ -25,6 +25,16 @@ Google Flights Scraper is an Apify Actor that returns Google Flights results for
 }
 ```
 
+## Flight price alerts (fare drops)
+
+Schedule a search with `"onlyPriceDrops": true`: each run saves the route's flights only when its cheapest fare is lower than on the previous run, with `previousCheapestPrice` on every row. Add `"maxPrice": 900` for a threshold alert. The first run saves everything (`change: "first_check"`); a run with no drop saves nothing.
+
+```json
+{ "origin": "JFK", "destination": "LHR", "departureDate": "2026-12-18", "returnDate": "2027-01-03", "maxPrice": 900, "onlyPriceDrops": true }
+```
+
+Ready-made: [n8n workflow: fare drops to Slack](https://github.com/retracn/n8n-apify-templates/blob/main/flight-fare-drops-to-slack.json) · [guide: flight price alerts by API](https://retracn.github.io/automationnation-actors/guides/flight-price-alerts-api/) · [public task: New York to London fare alert](https://apify.com/automationnation/google-flights-scraper/tasks/flight-price-alert-new-york-london)
+
 ## Run it from code
 
 **REST API**
